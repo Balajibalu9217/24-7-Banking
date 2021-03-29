@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+
+    <style type="text/css">
+        
+        #labels{
+            height: 165px;
+            width: 130px;
+            float: left;
+            line-height: 24px;
+            text-align:initial;
+            padding-left: 20px;
+            color:white;
+            font-size: 16px;
+        }
+        #inputs
+        {
+            height: 165px;
+            width: 200px;
+            float: left;
+            line-height: 23px;
+            color:white;
+            font-size: 16px;
+        }
+        input{
+            margin-bottom: 3px;
+        }
+        
+        #form{
+            height: 555px;
+            width: 350px;
+            margin: 0px auto;
+            position: relative;
+            top: 100px;
+            background: rgba(15, 15, 14, 0.383);
+            border: 3px rgba(251, 255, 14, 0.774) solid ;
+            border-radius: 10px;
+            box-shadow:  5px 10px rgba(255, 10, 10, 0.87);
+        }
+        body{
+            background-image: url('img.jpg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+        }
+    
+        h2{
+            text-align: center;
+            color: yellow;
+        }
+        #sub,#res{
+            position: relative;
+            margin-inline: 10px;
+            background-color: powderblue;
+            font-size: 15px;
+            border-radius: 5px;
+       }
+        
+        #sub,#res:hover{
+            background-color:  #33ff99; 
+            transition-duration: 0.5s;
+            }    
+    </style>
+</head>
+<body>
+    <script>
+        function validate()
+        {
+          var res1 = document.getElementById('fname').value
+          var res2 = document.getElementById('lname').value
+          var res3 = document.getElementById('email').value
+          var res4 = document.getElementById('ph').value
+          var res5 = document.getElementById('city').value
+          var pw = document.getElementById('pw').value
+          var cpw = document.getElementById('cpw').value
+          
+            if(res1.length==0)
+            {
+                alert('**Firstname is required')
+                 return false
+            }
+            else if(res2.length==0)
+            {
+                 alert('**Lastname is required')
+                return false
+                  }
+            else if(res3.length==0)
+            {
+                alert('**Email is required')
+                return false
+            }
+            else if(res4.length==0)
+            {
+                alert('**PhoneNumber is required')
+                return false
+            }
+            else if(res5.length==0)
+            {
+                alert('**City is required')
+                return false
+            }
+            else if(pw=="")
+            {
+                alert('**Password is required')
+                return false
+            }
+            else if(pw.length<5)
+            {
+                alert('**Password should be minimum 5 characters')
+                return false
+            }
+            else if(pw.length>15)
+            {
+                alert('**Password length must be 15 characters')
+                return false
+            }
+     
+            else if(pw!=cpw)
+            {
+                 alert('**Password is mismatching')
+                return false
+           }
+        }
+            function validateString(id)
+             {
+                var element = document.getElementById(id);
+                var regExp = /^[a-zA-Z ]+$/;
+                if(!regExp.test(element.value))
+                {
+                    alert("Enter string value")
+                    element.style.border="3px solid red"
+                    return false
+                }
+                element.style.border="3px solid green"
+            }
+         
+            function validateNumber(id)
+              {    
+                 var element = document.getElementById(id);
+                 var regExp = /^[6-9]{1}[0-9]{9}$/;
+                 if(!regExp.test(element.value))
+                 {
+                     alert("Invalid Phone Number")
+                     element.style.border="3px solid red"
+                     return false
+                 }
+                 element.style.border="3px solid green"
+                }
+
+            
+            function validateEmail(id)
+             {
+                var element = document.getElementById(id);
+                var regExp = /^[a-zA-Z0-9._]+@[a-zA-Z0-9._]+\.[a-zA-Z]{2,4}$/;
+                if(!regExp.test(element.value))
+                {
+                    alert("Enter valid email")
+                    element.style.border="3px solid red"
+                    return false
+                }
+                element.style.border="3px solid green"
+            }
+            
+             </script>
+            
+       <div id="form">
+           <h2>Sign UP</h2>
+            <form onsubmit="return validate()" name="signup_form" action="web.html" method="GET">
+                <div id="labels">
+                 
+                   <label for="FirstName">FirstName</label>  <br> <br>
+                   <label for="LastName">LastName</label> <br> <br>
+                   <label for="Gender">Gender</label> <br> <br>
+                   <label for="Email">Email</label> <br> <br>
+                   <label for="Phone Number">Phone Number</label> <br> <br>
+                   <label for="City">City</label> <br> <br>
+                   <label for="State">State</label> <br> <br> <br>
+                   <label for="Password">Password</label> <br> <br>
+                   <label for="Confirm Password">Confirm Password</label> <br> 
+                </div>
+                <div id="inputs">
+                    <input type="text"  placeholder="FirstName" id="fname"  onblur="validateString(this.id)"> <br> <br>
+                    <input type="text"  placeholder="LastName" id="lname"> <br> <br>
+                    <input type="radio" name="gender" value="male">Male <input type="radio" name="gender" value="female">Female <input type="radio" name="gender" value="other"> Other 
+                    <br> <br>
+                    <input type="email" name=""  placeholder="Email" id="email" onblur="validateEmail(this.id)"> <br> <br>
+                    <input type="number" name="Phone Number"  id="ph" onblur="validateNumber(this.id)"> <br> <br>
+                    <input type="text" name="City" id="city"> <br> <br>
+                    <label for="state">Select your state</label>
+                    <select name="state" id="state" >
+                        <option value="andhrapradesh">Andhra Pradesh</option>
+                        <option value="karnataka">Karnataka</option>
+                        <option value="tamilnadu">Tamilnadu</option>
+                        <option value="telengana">Telengana</option>
+                      </select> <br> <br>
+                      <input type="password" name="" id="pw" onblur="validatePassword(this.id)" placeholder="Password"> <br> <br>
+                      <input type="password" id="cpw" placeholder="Confirm Password"> <br> <br>
+                      <button type="submit"  value="Submit" id="sub">Submit</button> 
+                      <button type="reset"  value="Reset" id="res">Reset</button>
+                </div>
+            </form>
+       </div>
+</body>
+</html>
+
+
+
+
+

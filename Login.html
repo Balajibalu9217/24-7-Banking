@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        #main{
+            text-align: center;
+            margin-top: 200px;
+            height: 250px;
+            top: 200px;
+            width: 320px;
+            margin: 0 auto;
+            position: relative;
+            border: 3px rgba(251, 255, 14, 0.774) solid ;
+            border-radius: 10px;
+
+        }
+        h2{
+            margin: 20px;
+            color: yellow;
+            font-size: 30px;
+        }
+        
+        label{
+            color: aqua;
+            padding: 10px;
+            font-size: 17px;
+        }
+        #btn{
+            margin: 10px;
+            color: white;
+            background-color:  #1aa3ff;
+            font-size: 16px;
+            border-style: solid;
+            border-radius: 5px;
+           
+        }
+        a{
+            text-decoration: none;
+            color: white;
+            padding: 4px;
+            width: 100%;
+            border-radius: 5px;
+        }
+        a:hover{
+            background-color: black;
+            
+            color: red;
+            transition: 0.6s;
+        }
+       body{
+           background-image: url(bgpic.jpg);
+           background-position: center;
+       }
+    </style>
+</head>
+<body>
+    <script>
+         
+      function validateLogin(){  
+        var name=document.getElementById('u1').value
+        var password=document.getElementById('pw').value  
+          
+      if (name==null || name==""){  
+        alert("Username is required ");  
+        return false;  
+      }
+      else if(password==""){  
+        alert("Password is required");  
+        return false;  
+        }
+        else if(password.length<6){  
+        alert("Password must be 6 characters");  
+        return false;  
+        }  
+      }  
+ 
+    </script>
+    <div id="main">
+        <form action="web.html" name="myform" onclick="return validateLogin()" method="POST">
+        <h2>Login</h2>
+        <label for="Username">Username :</label>
+        <input type="text" id="u1" name="username"  style="width: 180px; height: 20px; border-radius: 5px; border-color: aqua;" placeholder="Enter your Username"> <br> <br>
+        <label for="Password">Password :</label>
+        <input type="text" id="pw" name="password" style="width: 180px; height: 20px; border-radius: 5px; border-color: aqua;" placeholder="Enter your Password"> <br> <br>
+        <button type="Submit" id="btn" style=" width: 60px; height: 25px;"><a id="sub" href="web.html"> Submit</a></button> <br>
+    </form>
+    </div>
+</body>
+</html>
